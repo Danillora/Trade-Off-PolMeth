@@ -1,5 +1,5 @@
 # Trade-Off-PolMeth
-Paper to PolMeth
+Paper to Latin America Political Science Methodology 2025
 
 This is the repository of the working paper "The Trade-off between Experimental and Observational designs in Political Science" authored by Caio Rios and Danillo Batista.
 

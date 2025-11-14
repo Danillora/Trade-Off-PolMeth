@@ -1,12 +1,13 @@
 # Trade-Off-PolMeth
 Paper to PolMeth
 
-Overleaf (https://www.overleaf.com/project/68f64204cdd94b5ec7e382c2)
+This is the repository of the working paper "The Trade-off between Experimental and Observational designs in Political Science" authored by Caio Rios and Danillo Batista.
 
-Controle download (https://docs.google.com/spreadsheets/d/13wjU6JDyUqOUqAgdPseh_-IpSX0cKgNuHHl0d3OfpdU/edit?gid=0#gid=0)
+All materials and scripts are available in this repository.
 
-WOS Search filters: WC="POLITICAL SCIENCE"; Year [2010-2024]; Document Type = Article
-
-Total of results: 273,052
-
-First paper (for reference) Gullimair Travels East
+Source: Web of Science (WoS) database.
+WoS Category = Political Science
+PY = 2010 to 2024
+Article Only
+N = 267.351 
+Selection: 

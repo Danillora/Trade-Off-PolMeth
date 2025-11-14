@@ -15,7 +15,7 @@ if(require(ggrepel) == F) install.packages("ggrepel"); require(ggrepel)
 # setwd(here())
 
 # saveRDS(M, "dataset psci.RDS")
-write.csv(M, "dataset psci.csv")
+
 
 M <- readRDS("dataset psci.RDS")
 
@@ -75,9 +75,7 @@ a <- M %>% group_by(SO, TYPE) %>% summarise(n = n()) %>%
 
 setwd(here())
 
-b <- read.xlsx("jif.xlsx")
-colnames(b) <- b[1,]
-b <- b[c(-1, -19, -20),]
+b <- read_xlsx("jif.xlsx") %>% rename(ABB = 2)
 
 a <- a %>% left_join(b %>% select(`Journal name`, `5 Year JIF`, ABB) %>% mutate(`Journal name` = toupper(`Journal name`)), 
                      by = c("SO" = "Journal name"))
@@ -157,7 +155,8 @@ ggplot(df, aes(x = Country, y = n)) +
         axis.text.y = element_text(size = 9),
         legend.position = "none") +
   scale_x_discrete(label = function(x) gsub("_.*", "", x)) +
-  scale_y_continuous(expand = expansion(c(.1,.5)))
+  scale_y_continuous(expand = expansion(c(.1,.5))) +
+  labs(y = "Published Papers", x = "Country")
 
 ggsave("graph 3.png")
 
@@ -168,15 +167,15 @@ NetMatrix <- biblioNetwork(m_exp, analysis = "co-occurrences", network = "keywor
 
 # Plot the network
 
-png("zgraph 4_1 exp.png", width = 2400, height = 1800, res = 300)
-net=networkPlot(NetMatrix, normalize="association", weighted=T, n = 50, Title = "Keyword Co-occurrences", type = "fruchterman", size=T,edgesize = 5,labelsize=0.7)
+png("graph 4_1 exp.png", width = 2400, height = 1800, res = 300)
+net=networkPlot(NetMatrix, normalize="association", weighted=T, n = 30, Title = "Keyword Co-occurrences", type = "fruchterman", size=T,edgesize = 5,labelsize=0.7)
 dev.off()
 
 NetMatrix <- biblioNetwork(m_obs, analysis = "co-occurrences", network = "keywords", sep = ";")
 
 # Plot the network
-png("zgraph 4_2 obs.png", width = 2400, height = 1800, res = 300)
-net=networkPlot(NetMatrix, normalize="association", weighted=T, n = 50, Title = "Keyword Co-occurrences", type = "fruchterman", size=T,edgesize = 5,labelsize=0.7)
+png("graph 4_2 obs.png", width = 2400, height = 1800, res = 300)
+net=networkPlot(NetMatrix, normalize="association", weighted=T, n = 30, Title = "Keyword Co-occurrences", type = "fruchterman", size=T,edgesize = 5,labelsize=0.7)
 dev.off()
 
 
